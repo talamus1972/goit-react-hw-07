@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchContacts } from "../../redux/contactsOps";
 import toast, {Toaster} from "react-hot-toast";
+import { selectError, selectLoading } from "../../redux/contactsSlice";
 
 export default function App() {
 
@@ -20,8 +21,8 @@ export default function App() {
     })
   }, [dispatch])
   
-  const loading = useSelector(state=> state.contacts.loading)
-  const error = useSelector(state=> state.contacts.error)
+  const loading = useSelector(selectLoading)
+  const error = useSelector(selectError)
 
   return (
     <div>
